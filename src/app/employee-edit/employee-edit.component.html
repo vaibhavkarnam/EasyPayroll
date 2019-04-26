@@ -1,0 +1,205 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <img src="assets/payroll.png" width="40px" style="border-radius: 20%; margin-right : 20px">
+    <a class="navbar-brand" routerLink="/home">Payroll</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Employee List
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<div class="container post-employee-container" id="body">
+  <form #postemployeeForm="ngForm">
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="form-group">
+          <div class="col-xs-6">
+            <label for="employee_name">
+              <h5>Employee Name</h5>
+            </label>
+            <input type="text" class="form-control" name="employee_name" [(ngModel)]="employee_name" id="employee_name"
+                   placeholder="employee name" title="enter the name of the employee.">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-6">
+            <label for="employee_description">
+              <h5>Employee Bio</h5>
+            </label>
+            <textarea class="form-control" placeholder="Bio" style="height:250px" name="employee_description"
+                      [(ngModel)]="employee_bio"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-4">
+                <label for="employee_dept">
+                  <h5>Department</h5>
+                </label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" name="employee_dept" [(ngModel)]="employee_department"
+                       placeholder="Department"
+                       title="enter the Department">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-4">
+                <label for="employee_designation">
+                  <h5>Designation</h5>
+                </label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" name="employee_designation" [(ngModel)]="employee_designation"
+                       placeholder="Designation"
+                       title="enter the Designation">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-4">
+                <label for="employee_salary">
+                  <h5>Salary</h5>
+                </label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" name="employee_salary" [(ngModel)]="employee_salary" placeholder="Salary"
+                       title="enter the gross pay">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-4">
+                <label for="employee_health">
+                  <h5>Health insurance premium</h5>
+                </label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" name="employee_health" [(ngModel)]="employee_healthPremium"
+                       placeholder="Health insurance premium"
+                       title="enter the Health insurance premium">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-4">
+                <label for="employee_LifeIns">
+                  <h5>Life insurance premium</h5>
+                </label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" name="employee_LifeIns" [(ngModel)]="employee_lifePremium"
+                       placeholder="Life insurance premium"
+                       title="enter the Life insurance premium">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-6">
+            <div class="row">
+              <div class="col-4">
+                <label for="employee_Retirementplan">
+                  <h5>Retirement plan(401K)</h5>
+                </label>
+              </div>
+              <div class="col-6">
+                <input class="form-control" name="employee_Retirementplan" [(ngModel)]="employee_retirementPlan"
+                       placeholder="Retirement plan"
+                       title="enter the Retirement plan">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="col-xs-6">
+          <div class="form-group text-center">
+            <label for="img-upload">
+              <h4>Photo</h4>
+            </label>
+            <input type="text" [(ngModel)]="img" class="form-control btn" placeholder="Photo url" name="img-upload"
+                   id="img-upload">
+            <img src="{{img}}" alt="photo preview" width="300px"
+                 style="margin-top: 62px; margin-bottom: 22px; border-radius:10%"/>
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div *ngIf="!editemployee" class="form-group text-center">
+            <label for="employee_email">
+              <h4>Email Id</h4>
+            </label>
+            <input type="text" [(ngModel)]="employee_emailId" class="form-control btn" placeholder="Email Id"
+                   name="img-upload"
+                   id="employee_email">
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="form-group text-center">
+            <label for="phone">
+              <h4>Phone</h4>
+            </label>
+            <input type="text" [(ngModel)]="employee_phone" class="form-control btn" placeholder="Phone no" name="phone"
+                   id="phone">
+          </div>
+        </div>
+
+        <div class="form-group text-center">
+          <div class="col-xs-6">
+          </div>
+        </div>
+
+        <div class="form-group text-center">
+          <div class="col-xs-6">
+          </div>
+        </div>
+
+        <br/>
+
+        <div class="col-xs-12">
+          <br/>
+          <button id="postEvent" type="submit" *ngIf="!editemployee" class="btn btn-block btn-lg btn-success"
+                  (click)="postEmployee()"> Add Employee
+          </button>
+          <button id="updateEvent" type="submit" *ngIf="editemployee" class="btn btn-block btn-lg btn-success"
+                  (click)="updateEmployee()"> Update
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

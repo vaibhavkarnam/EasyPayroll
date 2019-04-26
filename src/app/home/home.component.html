@@ -1,0 +1,138 @@
+<!-- Navigation -->
+<script src="../employee/employee.component.spec.ts"></script>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <img src="./assets/payroll.png" width="40px" style="border-radius: 20%; margin-right : 20px">
+    <a class="navbar-brand" routerLink="../home">EasyPayroll</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="../employee-edit">Add Employee</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" style="padding-top: 56px;">
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <br/>
+
+      <div>
+        <button class="btn btn-info dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          Filter
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">All</a>
+          <a class="dropdown-item" href="#">Relevant</a>
+          <a class="dropdown-item" href="#">Upcoming</a>
+        </div>
+      </div>
+
+      <br/>
+
+
+      <div class="card mb-4" *ngFor="let employee of employees">
+
+        <img class="card-img-top" src="{{employee.img_path}}" style=" width: 100%;
+    height: 15vw;
+    object-fit: cover;" alt="Card image cap">
+
+
+        <div class="card card-body">
+
+          <h4 class="card-title">{{employee.employee_name}}</h4>
+          <h6 class="card-text">{{employee.employee_designation}}</h6>
+          <h6 class="card-text">Department: {{employee.employee_department}}</h6>
+          <h6 class="card-text">Salary: {{employee.employee_salary}}</h6>
+          <div>
+            <button type="button" class=" btn-block btn btn-primary" (click)="viewEmployee(employee._id)">Details
+              &rarr;
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--
+    <div class="col-md-4">
+      <div class="card my-4">
+        <h5 class="card-header">Search by Title </h5>
+        <div class="card-body">
+
+          <div class="input-group">
+            <input [(ngModel)]="this.word" type="text" class="form-control" placeholder="Input the word to search">
+            <span class="input-group-btn">
+                <button (click)="search()" class="btn btn-secondary" type="button">Go</button>
+              </span>
+          </div>
+          <hr/>
+          <span>
+          Search results for:  <i> word </i> <i class="btn btn-sm btn-outline-danger fa fa-times d-flex float-right"
+                                                style="margin-right: 15px;"> </i>
+          </span>
+        </div>
+
+      </div>
+
+      <div class="card my-4">
+        <h5 class="card-header">Search by Date</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input [(ngModel)]="this.word" type="text" class="form-control" placeholder="Input the word to search">
+            <span class="input-group-btn">
+                <button (click)="search()" class="btn btn-secondary" type="button">Go</button>
+              </span>
+          </div>
+          <hr/>
+          <span>
+          Search results for:  <i> word </i> <i class="btn btn-sm btn-outline-danger fa fa-times d-flex float-right"
+                                                style="margin-right: 15px;"> </i>
+          </span>
+        </div>
+      </div>
+
+      <div class="card my-4">
+        <h5 class="card-header">Search by Tags</h5>
+        <div class="card-body">
+          <div class="input-group">
+            <input [(ngModel)]="this.word" type="text" class="form-control" placeholder="Input the word to search">
+            <span class="input-group-btn">
+                <button (click)="search()" class="btn btn-secondary" type="button">Go</button>
+              </span>
+          </div>
+          <hr/>
+          <span>
+          Search results for:  <i> word </i> <i class="btn btn-sm btn-outline-danger fa fa-times d-flex float-right"
+                                                style="margin-right: 15px;"> </i>
+          </span>
+        </div>
+      </div>
+    </div>
+-->
+
+  </div>
+</div>
+
+<button (click)="topFunction()" id="myBtn" title="Go to top">Top ↑</button>
+
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">@EasyPayroll 2019</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+
+
+
