@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 
-const HOST = 'http://localhost:4000';
+const HOST = 'https://easy-payroll-backend.herokuapp.com';
 
 @Injectable()
 export class EmployeeServiceClient {
