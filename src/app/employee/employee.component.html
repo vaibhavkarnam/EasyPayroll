@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="../../organization">Add Employee</a>
+          <a class="nav-link" routerLink="../../employee-edit">Add Employee</a>
         </li>
       </ul>
     </div>
@@ -44,6 +44,50 @@
             </li>
           </ul>
         </div>
+
+        <div class="tab-content profile-tab">
+        <div class="row">
+          <div class="col-md-3">
+            <label>Name</label>
+          </div>
+          <div class="col-md-9 paddingClass">
+            <p>{{employee.employee_name}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label>Email</label>
+          </div>
+          <div class="col-md-9 paddingClass">
+            <p>{{employee.employee_emailId}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label>Phone</label>
+          </div>
+          <div class="col-md-9 paddingClass">
+            <p>{{employee.employee_phone}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label>Department</label>
+          </div>
+          <div class="col-md-9 paddingClass">
+            <p>{{employee.employee_department}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label>Bio</label>
+          </div>
+          <div class="col-md-9 paddingClass">
+            <p>{{employee.employee_bio}}</p>
+          </div>
+        </div>
+        </div>
+
       </div>
       <div class="col-md-2">
         <a class="btn profile-edit-btn" (click)="editProfile()">
@@ -51,57 +95,33 @@
       </div>
 
       <div class="col-md-4">
+
       </div>
       <div class="col-md-8">
-        <div class="tab-content profile-tab" id="myTabContent">
+        <div class="tab-content profile-tab " id="myTabContent">
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-            <div class="row">
-              <div class="col-md-3">
-                <label>Name</label>
-              </div>
-              <div class="col-md-9">
-                <p>{{employee.employee_name}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-                <label>Email</label>
-              </div>
-              <div class="col-md-9">
-                <p>{{employee.employee_emailId}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-                <label>Phone</label>
-              </div>
-              <div class="col-md-9">
-                <p>{{employee.employee_phone}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-                <label>Department</label>
-              </div>
-              <div class="col-md-9">
-                <p>{{employee.employee_department}}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3">
-                <label>Bio</label>
-              </div>
-              <div class="col-md-9">
-                <p>{{employee.employee_bio}}</p>
-              </div>
-            </div>
             <div class="row">
               <div class="col-md-3">
                 <label>Salary</label>
               </div>
               <div class="col-md-9">
                 <p>{{employee.employee_salary}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label>Federal Tax</label>
+              </div>
+              <div class="col-md-9">
+                <p>{{employee.employee_federal_tax}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <label>State Tax</label>
+              </div>
+              <div class="col-md-9">
+                <p>{{employee.employee_state_tax}}</p>
               </div>
             </div>
             <div class="row">

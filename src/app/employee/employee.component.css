@@ -132,3 +132,7 @@ body {
 .bookmarked img {
   width: 250px;
 }
+
+.paddingClass{
+  padding-left: 50px;
+}

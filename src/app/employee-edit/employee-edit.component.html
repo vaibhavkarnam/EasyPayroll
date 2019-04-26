@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
     <img src="assets/payroll.png" width="40px" style="border-radius: 20%; margin-right : 20px">
-    <a class="navbar-brand" routerLink="/home">Payroll</a>
+    <a class="navbar-brand" routerLink="/home">EasyPayroll</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,6 +20,15 @@
 
 
 <div class="container post-employee-container" id="body">
+
+  <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    The name, designation, salary, Federal Tax and email fields are mandatory.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
   <form #postemployeeForm="ngForm">
 
     <div class="row">
@@ -87,11 +96,45 @@
                 </label>
               </div>
               <div class="col-6">
-                <input class="form-control" name="employee_salary" [(ngModel)]="employee_salary" placeholder="Salary"
+                <input type="number" class="form-control" name="employee_salary" [(ngModel)]="employee_salary" placeholder="Salary"
                        title="enter the gross pay">
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="form-group">
+        <div class="col-xs-6">
+          <div class="row">
+            <div class="col-4">
+              <label for="employee_FedTax">
+                <h5>Federal Tax</h5>
+              </label>
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" name="employee_FedTax" [(ngModel)]="employee_federal_tax"
+                     placeholder="Federal Tax"
+                     title="enter the Federal Tax">
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="form-group">
+        <div class="col-xs-6">
+          <div class="row">
+            <div class="col-4">
+              <label for="employee_StateTax">
+                <h5>State Tax</h5>
+              </label>
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" name="employee_FedTax" [(ngModel)]="employee_state_tax"
+                     placeholder="State Tax"
+                     title="enter the State Tax">
+            </div>
+          </div>
+        </div>
         </div>
 
         <div class="form-group">
@@ -103,7 +146,7 @@
                 </label>
               </div>
               <div class="col-6">
-                <input class="form-control" name="employee_health" [(ngModel)]="employee_healthPremium"
+                <input type="number" class="form-control" name="employee_health" [(ngModel)]="employee_healthPremium"
                        placeholder="Health insurance premium"
                        title="enter the Health insurance premium">
               </div>
@@ -118,7 +161,7 @@
                 </label>
               </div>
               <div class="col-6">
-                <input class="form-control" name="employee_LifeIns" [(ngModel)]="employee_lifePremium"
+                <input type="number" class="form-control" name="employee_LifeIns" [(ngModel)]="employee_lifePremium"
                        placeholder="Life insurance premium"
                        title="enter the Life insurance premium">
               </div>
@@ -133,7 +176,7 @@
                 </label>
               </div>
               <div class="col-6">
-                <input class="form-control" name="employee_Retirementplan" [(ngModel)]="employee_retirementPlan"
+                <input type="number" class="form-control" name="employee_Retirementplan" [(ngModel)]="employee_retirementPlan"
                        placeholder="Retirement plan"
                        title="enter the Retirement plan">
               </div>
@@ -149,15 +192,15 @@
             <label for="img-upload">
               <h4>Photo</h4>
             </label>
-            <input type="text" [(ngModel)]="img" class="form-control btn" placeholder="Photo url" name="img-upload"
+            <input type="text" [(ngModel)]="img_path" class="form-control btn" placeholder="Photo url" name="img-upload"
                    id="img-upload">
-            <img src="{{img}}" alt="photo preview" width="300px"
+            <img src="{{img_path}}" alt="photo preview" width="300px"
                  style="margin-top: 62px; margin-bottom: 22px; border-radius:10%"/>
           </div>
         </div>
 
-        <div class="col-xs-6">
-          <div *ngIf="!editemployee" class="form-group text-center">
+        <div  *ngIf="!editemployee" class="col-xs-6">
+          <div class="form-group text-center">
             <label for="employee_email">
               <h4>Email Id</h4>
             </label>
@@ -195,7 +238,7 @@
                   (click)="postEmployee()"> Add Employee
           </button>
           <button id="updateEvent" type="submit" *ngIf="editemployee" class="btn btn-block btn-lg btn-success"
-                  (click)="updateEmployee()"> Update
+                  (click)="updateEmployee()"> Update Employee
           </button>
         </div>
 
